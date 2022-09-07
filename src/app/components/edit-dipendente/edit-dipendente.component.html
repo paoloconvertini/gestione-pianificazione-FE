@@ -1,0 +1,46 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="!currentDipendente">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+<ng-template #editable>
+  <div *ngIf="currentDipendente.id" class="edit-form">
+    <h4>Dipendente</h4>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          [(ngModel)]="currentDipendente.nome"
+          name="nome"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cognome">Cognome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cognome"
+          [(ngModel)]="currentDipendente.cognome"
+          name="cognome"
+        />
+      </div>
+    </form>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateDipendente()"
+    >
+      Salva
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <div *ngIf="!currentDipendente.id">
+    <br />
+    <p>Cannot access this Dipendente...</p>
+  </div>
+</ng-template>
