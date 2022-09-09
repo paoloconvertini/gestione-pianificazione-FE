@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Dipendente} from "../../models/dipendente";
-import {DipendenteService} from "../../services/dipendente.service";
+import {Dipendente} from "../../../models/dipendente";
+import {DipendenteService} from "../../../services/dipendente.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-add-dipendente',
@@ -12,12 +13,13 @@ export class AddDipendenteComponent implements OnInit {
     nome: '',
     cognome: ''
   }
-  submitted: boolean = false;
+  message: string = '';
 
-  constructor(private service: DipendenteService) {
+  constructor(private service: DipendenteService, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
+    this.message = '';
   }
 
   saveDipendente(): void {
@@ -29,18 +31,19 @@ export class AddDipendenteComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.submitted = true;
+          if(res && !res.error) {
+            this.openSnackBar();
+          }
         },
         error: (e) => console.error(e)
       });
   }
 
-  newDipendente(): void {
-    this.submitted = false;
-    this.dipendente = {
-      nome: '',
-      cognome: ''
-    };
+   openSnackBar() {
+       this._snackBar.open('Dipendente salvato con successo!!', '', {
+         horizontalPosition: 'center',
+         verticalPosition: 'top',
+         duration: 2000
+       });
   }
-
 }

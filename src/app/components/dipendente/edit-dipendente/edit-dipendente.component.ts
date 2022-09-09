@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Dipendente} from "../../models/dipendente";
+import {Dipendente} from "../../../models/dipendente";
 import { ActivatedRoute } from '@angular/router';
-import {DipendenteService} from "../../services/dipendente.service";
+import {DipendenteService} from "../../../services/dipendente.service";
 
 @Component({
   selector: 'app-edit-dipendente',

@@ -1,3 +1,16 @@
+<mat-toolbar color="primary">
+  <button routerLink="dipendenti" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Gestione Pianificazione</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!--
 <div>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <a href="#" class="navbar-brand">
@@ -9,14 +22,7 @@
         <mat-icon aria-hidden="false" aria-label="home" fontIcon="perm_identity"></mat-icon>
       </a>
     </li>
-    <li class="nav-item">
-      <a routerLink="add-dipendente" class="nav-link">
-        <mat-icon aria-hidden="false" aria-label="home" fontIcon="group_add"></mat-icon>
-      </a>
-    </li>
+
   </div>
 </nav>
-<div class="container mt-3">
-  <router-outlet></router-outlet>
-</div>
-</div>
+</div>-->
