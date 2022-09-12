@@ -32,7 +32,7 @@
               <button *ngIf="progetto.isEdit" (click)="updateProgetto(progetto)" mat-button color="primary" >
                 <mat-icon aria-hidden="false" aria-label="save" fontIcon="save"></mat-icon>
               </button>
-              <button *ngIf="progetto.isEdit" (click)="progetto.isEdit = false" mat-button color="warn">
+              <button *ngIf="progetto.isEdit" (click)="progetto.isEdit = false; refreshList()" mat-button color="warn">
                 <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
               </button>
             </td>

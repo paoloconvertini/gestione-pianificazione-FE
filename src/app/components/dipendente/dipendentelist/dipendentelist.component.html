@@ -42,7 +42,7 @@
               <button *ngIf="dipendente.isEdit" (click)="updateDipendente(dipendente)" mat-button color="primary" >
                 <mat-icon aria-hidden="false" aria-label="save" fontIcon="save"></mat-icon>
               </button>
-              <button *ngIf="dipendente.isEdit" (click)="dipendente.isEdit = false" mat-button color="warn">
+              <button *ngIf="dipendente.isEdit" (click)="dipendente.isEdit = false; refreshList()" mat-button color="warn">
                 <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
               </button>
             </td>
