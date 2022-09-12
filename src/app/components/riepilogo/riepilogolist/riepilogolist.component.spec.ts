@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditProgettoComponent } from './edit-progetto.component';
+import { RiepilogolistComponent } from './riepilogolist.component';
 
-describe('EditProgettoComponent', () => {
-  let component: EditProgettoComponent;
-  let fixture: ComponentFixture<EditProgettoComponent>;
+describe('RiepilogolistComponent', () => {
+  let component: RiepilogolistComponent;
+  let fixture: ComponentFixture<RiepilogolistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditProgettoComponent ]
+      declarations: [ RiepilogolistComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditProgettoComponent);
+    fixture = TestBed.createComponent(RiepilogolistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

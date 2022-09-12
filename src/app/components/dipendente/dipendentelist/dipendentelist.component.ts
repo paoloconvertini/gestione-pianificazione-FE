@@ -4,7 +4,7 @@ import {DipendenteService} from "../../../services/dipendente.service";
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatDialog} from "@angular/material/dialog";
 import {AddDipendenteComponent} from "../add-dipendente/add-dipendente.component";
-import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
+import {DeleteDialogComponent} from "../../delete-dialog/delete-dialog.component";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -17,11 +17,7 @@ export class DipendentelistComponent implements OnInit {
   displayedColumns: string[] = ['nome', 'cognome', 'azioni'];
   dataSource = new MatTableDataSource<Dipendente>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  //dipendenti?: Dipendente[];
-  currentDipendente: Dipendente = {};
-  currentIndex = -1;
   loader = false;
-  dipendentiLength = 0;
   constructor(private service: DipendenteService,
               private route: ActivatedRoute,
               private router: Router,
@@ -45,9 +41,13 @@ export class DipendentelistComponent implements OnInit {
   }
 
   openDeleteDialog(dipendente: Dipendente) {
+    let msg = 'Sei sicuro di voler procedere con l\'eliminazione di';
+    msg += dipendente.nome;
+    msg += dipendente.cognome;
+    msg += '?';
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '30%',
-      data: {nome: dipendente.nome, cognome: dipendente.cognome},
+      data: {msg: msg},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -65,7 +65,6 @@ export class DipendentelistComponent implements OnInit {
         next: (data) => {
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.paginator = this.paginator;
-          this.dipendentiLength = this.dataSource.data.length;
           this.loader = false;
           console.log(data);
         },
@@ -77,8 +76,6 @@ export class DipendentelistComponent implements OnInit {
   }
   refreshList(): void {
     this.retrieveDipendenti();
-    this.currentDipendente = {};
-    this.currentIndex = -1;
   }
 
   updateDipendente(dipendente:Dipendente): void {

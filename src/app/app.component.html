@@ -1,28 +1,26 @@
 <mat-toolbar color="primary">
-  <button routerLink="dipendenti" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button (click)="sidebarmenu.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
   <span>Gestione Pianificazione</span>
   <span class="example-spacer"></span>
 </mat-toolbar>
-<div class="container mt-3">
-  <router-outlet></router-outlet>
-</div>
-
-
-<!--
-<div>
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-  <a href="#" class="navbar-brand">
-    <mat-icon aria-hidden="false" aria-label="home" fontIcon="home"></mat-icon>
-  </a>
-  <div class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a routerLink="dipendenti" class="nav-link">
-        <mat-icon aria-hidden="false" aria-label="home" fontIcon="perm_identity"></mat-icon>
+<mat-sidenav-container>
+  <mat-sidenav #sidebarmenu>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/riepilogo'"><mat-icon>home</mat-icon></a>
+      <a mat-list-item [routerLink]="'/pianificato'"> Pianificato </a>
+      <a mat-list-item [routerLink]="'/dipendenti'">
+        <mat-icon>perm_identity</mat-icon>
       </a>
-    </li>
-
-  </div>
-</nav>
-</div>-->
+      <a mat-list-item (click)="sidebarmenu.toggle()" href="#" mat-list-item>
+        <mat-icon>close</mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 92vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
