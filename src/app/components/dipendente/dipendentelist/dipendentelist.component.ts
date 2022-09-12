@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Dipendente} from "../../../models/dipendente";
-import {DipendenteService} from "../../../services/dipendente.service";
+import {DipendenteService} from "../../../services/dipendente/dipendente.service";
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatDialog} from "@angular/material/dialog";
 import {AddDipendenteComponent} from "../add-dipendente/add-dipendente.component";

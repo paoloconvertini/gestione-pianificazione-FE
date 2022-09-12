@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Dipendente} from "../../../models/dipendente";
-import {DipendenteService} from "../../../services/dipendente.service";
+import {DipendenteService} from "../../../services/dipendente/dipendente.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({

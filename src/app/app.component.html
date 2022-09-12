@@ -8,13 +8,17 @@
 <mat-sidenav-container>
   <mat-sidenav #sidebarmenu>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="'/riepilogo'"><mat-icon>home</mat-icon></a>
-      <a mat-list-item [routerLink]="'/pianificato'"> Pianificato </a>
-      <a mat-list-item [routerLink]="'/dipendenti'">
+      <a mat-list-item [routerLink]="'/riepilogo'" matTooltip="Riepilogo">
+        <mat-icon>home</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="'/pianificato'" matTooltip="Pianificazione">
+        <mat-icon>event_note</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="'/dipendenti'" matTooltip="Gestisci dipendenti">
         <mat-icon>perm_identity</mat-icon>
       </a>
-      <a mat-list-item (click)="sidebarmenu.toggle()" href="#" mat-list-item>
-        <mat-icon>close</mat-icon>
+      <a mat-list-item [routerLink]="'/progetto'" matTooltip="Gestisci progetti">
+        <mat-icon>business</mat-icon>
       </a>
     </mat-nav-list>
   </mat-sidenav>
