@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-9">
-      <button class="float-end" (click)="openDialog()" mat-fab matTooltip="Aggiungi dipendente" color="accent" aria-label="dipendente">
-        <mat-icon aria-hidden="false" aria-label="home" fontIcon="group_add"></mat-icon>
+      <button class="float-end" (click)="openDialog()" mat-mini-fab matTooltip="Aggiungi dipendente" color="accent" aria-label="dipendente">
+        <mat-icon aria-hidden="false" aria-label="home" fontIcon="add"></mat-icon>
       </button>
       <mat-form-field appearance="standard">
         <input matInput (keyup)="applyFilter($event)" placeholder="Nome" #input>
       </mat-form-field>
       <div class="mat-elevation-z8">
-        <mat-spinner *ngIf="loader"></mat-spinner>
+        <mat-spinner *ngIf="loader" class="loader"></mat-spinner>
         <table *ngIf="!loader" mat-table [dataSource]="dataSource">
 
           <!-- Name Column -->

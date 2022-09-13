@@ -23,6 +23,10 @@ p {
   margin: 0;
 }
 
+.loader {
+  margin: 0 auto;
+}
+
 .spacer {
   flex: 1;
 }
