@@ -1,5 +1,3 @@
-export class Progetto {
-  id?:any;
-  nome?:string;
-  isEdit?:boolean = false;
-}
+import {Model} from "./model";
+
+export class Progetto extends Model{}

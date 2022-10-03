@@ -1,0 +1,24 @@
+.title {
+  background: #944eac;
+}
+
+mat-grid-tile{
+  border: 1px solid #d5d5d5;
+}
+mat-grid-tile-header{
+  background: none!important;
+}
+
+mat-grid-list{
+  height: 220px;
+}
+
+.mese {
+  padding: 5px 3px 0 5px!important;
+  flex-direction: column!important;
+}
+
+.ore{
+  text-align: center;
+  padding-bottom: 3px;
+}

@@ -1,0 +1,25 @@
+.nome-dipendente {
+  -webkit-writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.title {
+  background: #512361;
+}
+
+mat-grid-tile{
+  border: 1px solid #d5d5d5;
+}
+mat-grid-tile-header{
+  background: none!important;
+}
+
+mat-grid-list{
+  height: 300px;
+}
+
+.mese {
+  padding: 5px 3px 0 5px!important;
+  flex-direction: column!important;
+}
+

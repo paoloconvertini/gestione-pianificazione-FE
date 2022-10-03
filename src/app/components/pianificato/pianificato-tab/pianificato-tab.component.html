@@ -1,0 +1,9 @@
+<ng-container *ngIf="(asyncTabs) === null">
+  Loading tabs...
+</ng-container>
+
+<mat-tab-group (selectedTabChange)="onChangeTab($event)">
+  <mat-tab *ngFor="let tab of asyncTabs; let index = index" [label]="tab.label">
+    <app-pianificatolist [idProgetto]="tab.id"></app-pianificatolist>
+  </mat-tab>
+</mat-tab-group>

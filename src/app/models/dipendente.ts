@@ -1,6 +1,5 @@
-export class Dipendente {
-  id?:any;
-  nome?:string;
+import {Model} from "./model";
+
+export class Dipendente extends Model{
   cognome?:string;
-  isEdit?:boolean = false;
 }

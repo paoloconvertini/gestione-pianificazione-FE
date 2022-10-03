@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080/api/v1/',
   DIPENDENTI: 'dipendenti',
-  PROGETTI: 'progetti'
+  PROGETTI: 'progetti',
+  PIANIFICATO: 'pianificato'
 };
 
 /*
