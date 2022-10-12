@@ -7,7 +7,8 @@ export const environment = {
   baseUrl: 'http://localhost:8080/api/v1/',
   DIPENDENTI: 'dipendenti',
   PROGETTI: 'progetti',
-  PIANIFICATO: 'pianificato'
+  PIANIFICATO: 'pianificato',
+  DIGITS_INFO: '1.1-1'
 };
 
 /*

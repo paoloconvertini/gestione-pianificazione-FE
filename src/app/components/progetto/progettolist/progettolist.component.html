@@ -1,14 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-9">
-      <div class="flex-container">
-        <mat-form-field appearance="standard">
-        <input matInput (keyup)="applyFilter($event)" placeholder="Nome" #input>
-      </mat-form-field>
         <button class="float-end" (click)="openDialog()" mat-mini-fab matTooltip="Aggiungi progetto" color="accent" aria-label="progetto">
-        <mat-icon aria-hidden="false" aria-label="home" fontIcon="add"></mat-icon>
-      </button>
-      </div>
+          <mat-icon aria-hidden="false" aria-label="home" fontIcon="add"></mat-icon>
+        </button>
+        <mat-form-field appearance="standard">
+          <input matInput (keyup)="applyFilter($event)" placeholder="Nome" #input>
+        </mat-form-field>
       <div class="mat-elevation-z8">
         <mat-spinner *ngIf="loader" class="loader"></mat-spinner>
         <table *ngIf="!loader" mat-table [dataSource]="dataSource">

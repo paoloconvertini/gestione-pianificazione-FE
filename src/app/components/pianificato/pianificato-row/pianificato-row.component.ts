@@ -1,5 +1,6 @@
-import {ChangeDetectorRef, Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Mese} from "../../../models/mese";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-pianificato-row',
@@ -10,26 +11,19 @@ export class PianificatoRowComponent implements OnInit {
   @Input() nomeDipendente: string | undefined;
   @Input() programmato!: Mese;
   @Input() fatturato!: Mese;
-  andamento = new Mese();
+  @Input() index!: number;
+  @Output() indexEvent = new EventEmitter<number>();
+  digitsInfo:string = environment.DIGITS_INFO
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.calcolaAndamento(this.programmato, this.fatturato, this.andamento);
   }
 
-  ngOnChanges(changes: SimpleChanges){
-    this.calcolaAndamento(changes['programmato'].currentValue, changes['fatturato'].currentValue, this.andamento);
+  sendDeleteEvent() {
+      console.log('sendDeleteEvent!:' + this.index);
+      this.indexEvent.emit(this.index);
   }
 
-  private calcolaAndamento(programmato:Mese, fatturato:Mese, andamento:Mese){
-    Object.entries(programmato).forEach(([key])=> {
-      if(programmato[key as keyof Mese] === 0){
-        andamento[key as keyof Mese] = 0;
-      } else {
-        andamento[key as keyof Mese] = (fatturato[key as keyof Mese]/programmato[key as keyof Mese])*100;
-      }
-    })
-    this.cd.detectChanges();
-  }
 }

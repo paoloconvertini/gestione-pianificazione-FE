@@ -10,7 +10,6 @@ export abstract class CommonService<T> {
     return this.http.get<any>(`${this.url}/${id}`);
   }
   create(data: any): Observable<any> {
-    console.log("create body:" + JSON.stringify(data));
     return this.http.post(this.url, data);
   }
   update(id:any, data: any): Observable<any> {

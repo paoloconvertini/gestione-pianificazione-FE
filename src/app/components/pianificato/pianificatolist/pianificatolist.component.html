@@ -10,25 +10,25 @@
   </div>
   <div class="row">
     <div class="col-12">
-
       <div class="mat-elevation-z8">
         <mat-spinner *ngIf="loader" class="loader"></mat-spinner>
         <table *ngIf="!loader" mat-table [dataSource]="dataSource">
-
           <!-- Name Column -->
           <ng-container matColumnDef="PianificatoDipendente">
             <th mat-header-cell *matHeaderCellDef>
               Pianificazione
               <div class="float-end">
-                <button mat-button color="primary" (click)="salva()"><mat-icon>save</mat-icon></button>
-                <button mat-button color="primary" (click)="sommario()"><mat-icon>info</mat-icon></button>
+                <button mat-button color="primary" matTooltip="Salva" (click)="salva()"><mat-icon>save</mat-icon></button>
+                <button mat-button color="primary" matTooltip="Vedi andamento totale" (click)="sommario()"><mat-icon>info</mat-icon></button>
               </div>
             </th>
             <th>Salva</th>
-            <td mat-cell *matCellDef="let pianificatoDipendente">
-              <app-pianificato-row [nomeDipendente]="pianificatoDipendente.nomeDipendete"
+            <td mat-cell *matCellDef="let pianificatoDipendente; let i = index">
+              <app-pianificato-row [nomeDipendente]="pianificatoDipendente.nomeDipendente"
                                    [programmato]="pianificatoDipendente.programmato"
-                                   [fatturato]="pianificatoDipendente.fatturato">
+                                   [fatturato]="pianificatoDipendente.fatturato"
+                                   [index]="i"
+                                   (indexEvent)="receiveDeleteEvent($event)">
               </app-pianificato-row>
             </td>
           </ng-container>
@@ -40,6 +40,12 @@
             <td class="mat-cell" colspan="4">Nessun risultato</td>
           </tr>
         </table>
+        <form class="note-form">
+          <mat-form-field class="note-full-width" appearance="fill">
+            <mat-label>Note</mat-label>
+            <textarea matInput placeholder="..." [(ngModel)]="pianificato.note" name="note"></textarea>
+          </mat-form-field>
+        </form>
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of pianificato"></mat-paginator>
       </div>
     </div>

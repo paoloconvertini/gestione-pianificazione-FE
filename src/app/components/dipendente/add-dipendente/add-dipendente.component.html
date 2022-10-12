@@ -21,7 +21,10 @@
           name="cognome"
         />
       </div>
-      <button (click)="save()" [mat-dialog-close]="true" class="btn btn-success">Salva</button>
+      <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="false">Annulla</button>
+        <button (click)="save()" mat-button [mat-dialog-close]="true" class="btn btn-success">Salva</button>
+      </mat-dialog-actions>
   </div>
 </div>
 

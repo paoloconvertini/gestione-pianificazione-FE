@@ -24,7 +24,6 @@ export abstract class CommonListComponent<T> {
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.paginator = this.paginator;
           this.loader = false;
-          console.log(data);
         },
         error: (e: any) => {
           console.error(e);
@@ -38,7 +37,6 @@ export abstract class CommonListComponent<T> {
     this.service.delete(id)
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.retrieveList();
         },
         error: (e) => console.error(e)
@@ -79,7 +77,6 @@ export abstract class CommonListComponent<T> {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) {
         this.delete(model.id);
       }

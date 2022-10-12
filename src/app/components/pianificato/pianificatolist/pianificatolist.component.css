@@ -5,3 +5,12 @@ table {
 .aggiungi{
   margin: 5px 0;
 }
+
+.note-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+.note-full-width {
+  width: 100%;
+}

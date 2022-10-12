@@ -1,5 +1,5 @@
-<mat-grid-list cols="12" rowHeight="fit">
-  <mat-grid-tile [colspan]="12" [rowspan]="1" class="title">
+<mat-grid-list cols="13" rowHeight="fit">
+  <mat-grid-tile [colspan]="13" [rowspan]="1" class="title">
     <mat-grid-tile-header>Programmato mensile</mat-grid-tile-header>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -74,7 +74,13 @@
       <div class="ore">{{programmato.dicembre}}</div>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="12" [rowspan]="1" class="title">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <div class="mese">
+      <div></div>
+      <div class="ore">{{this.totaleProgrammato}}</div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="13" [rowspan]="1" class="title">
     <mat-grid-tile-header>Fatturato mensile</mat-grid-tile-header>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -147,6 +153,21 @@
     <div class="mese">
       <div> Dicembre </div>
       <div class="ore">{{fatturato.dicembre}}</div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <div class="mese">
+      <div></div>
+      <div class="ore">{{this.totaleFatturato}}</div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="12" [rowspan]="1" class="title">
+    <mat-grid-tile-header>Andamento totale</mat-grid-tile-header>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <div class="mese">
+      <div></div>
+      <div class="ore">{{this.andamento | number : digitsInfo}}%</div>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

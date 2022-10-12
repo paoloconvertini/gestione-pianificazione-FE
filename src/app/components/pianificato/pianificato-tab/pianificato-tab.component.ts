@@ -35,7 +35,6 @@ export class PianificatoTabComponent implements OnInit {
     this.service.getAllProgetti()
       .subscribe({
         next: (data: any[] | undefined) => {
-          console.log(data);
           data?.forEach(p => {
             this.asyncTabs.push({label: p.nome, id: p.id});
         });
