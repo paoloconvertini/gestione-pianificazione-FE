@@ -13,7 +13,7 @@ export abstract class CommonListComponent<T> {
   dataSource = new MatTableDataSource<T>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  protected constructor(private service: CommonService<T>, protected dialog: MatDialog) {
+  protected constructor(protected service: CommonService<T>, protected dialog: MatDialog) {
   }
 
   retrieveList(): void {
@@ -63,8 +63,12 @@ export abstract class CommonListComponent<T> {
     }
   }
 
-  openDeleteDialog(model: any, extraProp: any) {
-    let msg = 'Sei sicuro di voler procedere con l\'eliminazione di ';
+  openDeleteDialog(model: any, extraProp: any, preProp: any) {
+    let msg = '';
+    if(preProp) {
+      msg += preProp;
+    }
+    msg += 'Sei sicuro di voler procedere con l\'eliminazione di ';
     msg += model.nome;
     if (extraProp) {
       msg += " ";

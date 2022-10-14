@@ -4,6 +4,7 @@ import {ProgettoService} from "../../../services/progetto/progetto.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProgettoComponent} from "../add-progetto/add-progetto.component";
 import {CommonListComponent} from "../../commonListComponent";
+import {PianificatoService} from "../../../services/pianificato/pianificato.service";
 
 @Component({
   selector: 'app-progettolist',
@@ -12,14 +13,26 @@ import {CommonListComponent} from "../../commonListComponent";
 })
 export class ProgettolistComponent extends CommonListComponent<Progetto> implements OnInit {
   displayedColumns: string[] = ['nome', 'azioni'];
-  constructor(service: ProgettoService, dialog: MatDialog) { super(service, dialog) }
+  constructor(private pianificatoService: PianificatoService, service: ProgettoService, dialog: MatDialog) { super(service, dialog) }
 
   ngOnInit(): void {
     this.retrieveList();
   }
 
   override openDeleteDialog(progetto: Progetto) {
-    super.openDeleteDialog(progetto, null);
+    let msg:any = null;
+    this.pianificatoService.checkProgettiPianificati(progetto.id)
+      .subscribe({
+        next: (res: boolean) => {
+          if(res){
+            msg = 'Il ' + progetto.nome + ' ha delle pianificazioni.\nProcedendo si cancelleranno anche tali pianificazioni.\n';
+          }
+          super.openDeleteDialog(progetto, null, msg);
+        },
+        error: (err: any) => {
+          console.error(err);
+        }
+      })
   }
 
   openDialog(){
