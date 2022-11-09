@@ -5,9 +5,12 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080/api/v1/',
+  baseAuthUrl: 'http://localhost:8081/api/v1/',
+  LOGIN: 'login',
   DIPENDENTI: 'dipendenti',
   PROGETTI: 'progetti',
   PIANIFICATO: 'pianificato',
+  RIEPILOGO: 'riepilogo',
   DIGITS_INFO: '1.1-1'
 };
 

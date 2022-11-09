@@ -37,6 +37,9 @@ import {
 } from './components/pianificato/pianificato-sommario/pianificato-sommario.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {SnackbarComponent} from './components/snackbar/snackbar.component';
+import { RiepilogoRowComponent } from './components/riepilogo/riepilogo-row/riepilogo-row.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -54,6 +57,8 @@ import {SnackbarComponent} from './components/snackbar/snackbar.component';
     PianificatoRowComponent,
     PianificatoSommarioComponent,
     SnackbarComponent,
+    RiepilogoRowComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
@@ -79,7 +84,8 @@ import {SnackbarComponent} from './components/snackbar/snackbar.component';
         ReactiveFormsModule,
         MatGridListModule,
         MatTabsModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatCardModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,12 @@
 <mat-toolbar color="primary">
-  <button (click)="sidebarmenu.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button *ngIf="isLoggedIn" (click)="sidebarmenu.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
   <span>Gestione Pianificazione</span>
   <span class="example-spacer"></span>
+  <button matTooltip="Logout" matTooltipPosition="below" mat-button *ngIf="isLoggedIn" (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidebarmenu>

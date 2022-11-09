@@ -5,7 +5,6 @@ import {CommonService} from "../services/CommonSerivce";
 import {Model} from "../models/model";
 import {DeleteDialogComponent} from "./delete-dialog/delete-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {Progetto} from "../models/progetto";
 
 @Directive()
 export abstract class CommonListComponent<T> {

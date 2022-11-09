@@ -1,3 +1,5 @@
 import {Model} from "./model";
 
-export class Progetto extends Model{}
+export class Progetto extends Model{
+  descrizione?: string;
+}

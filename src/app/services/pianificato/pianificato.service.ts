@@ -4,7 +4,6 @@ import {Pianificato} from "../../models/pianificato";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
-import {Progetto} from "../../models/progetto";
 
 const url = environment.baseUrl + environment.PIANIFICATO;
 @Injectable({

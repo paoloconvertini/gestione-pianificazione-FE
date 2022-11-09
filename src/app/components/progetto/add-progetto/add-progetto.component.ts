@@ -11,7 +11,8 @@ import {CommonAddComponent} from "../../commonAddComponent";
 })
 export class AddProgettoComponent extends CommonAddComponent<Progetto> implements OnInit {
   progetto: Progetto = {
-    nome: ''
+    nome: '',
+    descrizione: ''
   }
   constructor(service: ProgettoService, _snackBar: MatSnackBar) {
     super(service, _snackBar);
