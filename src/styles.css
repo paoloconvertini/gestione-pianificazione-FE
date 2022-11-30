@@ -10,6 +10,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.primary {
+ background-color: #27a3a3!important;
+}
+
+.color-primary {
+  color: #27a3a3!important;
+}
+
+.color-white {
+  color: white!important;
+}
+
+.color-purple {
+  color: #554974!important;
+}
+
+.purple {
+  background-color: #554974!important;
+}
+
 h1,
 h2,
 h3,
@@ -25,6 +45,7 @@ p {
 
 .loader {
   margin: 0 auto;
+  color: #27a3a3!important;
 }
 
 .spacer {
@@ -267,6 +288,10 @@ svg#clouds {
   left: -230px;
   z-index: -10;
   width: 1920px;
+}
+
+.margin-top {
+  margin-top: 20px
 }
 
 /* Responsive Styles */

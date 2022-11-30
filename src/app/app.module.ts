@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DipendentelistComponent} from './components/dipendente/dipendentelist/dipendentelist.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AddDipendenteComponent} from './components/dipendente/add-dipendente/add-dipendente.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
@@ -37,10 +37,9 @@ import {
 } from './components/pianificato/pianificato-sommario/pianificato-sommario.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {SnackbarComponent} from './components/snackbar/snackbar.component';
-import { RiepilogoRowComponent } from './components/riepilogo/riepilogo-row/riepilogo-row.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import {MatCardModule} from "@angular/material/card";
-
+import {TokenInterceptor} from "./helpers/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import {MatCardModule} from "@angular/material/card";
     PianificatoRowComponent,
     PianificatoSommarioComponent,
     SnackbarComponent,
-    RiepilogoRowComponent,
     LoginComponent
   ],
     imports: [
@@ -87,7 +85,7 @@ import {MatCardModule} from "@angular/material/card";
         MatAutocompleteModule,
         MatCardModule
     ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

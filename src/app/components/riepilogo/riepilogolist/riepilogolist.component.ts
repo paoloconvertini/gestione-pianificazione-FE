@@ -13,7 +13,8 @@ import {Riepilogo} from "../../../models/riepilogo";
 })
 export class RiepilogolistComponent implements OnInit {
   loader = false;
-  displayedColumns: string[] = ['Riepilogo']
+  displayedColumns: string[] = ['Dipendente', 'Pianificato', 'Gennaio', 'Febbraio', 'Marzo', 'Aprile'
+  ,'Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre','progetti']
   dataSource = new MatTableDataSource<Riepilogo>;
   riepilogo:Riepilogo = new Riepilogo();
   @ViewChild(MatPaginator) paginator!: MatPaginator;

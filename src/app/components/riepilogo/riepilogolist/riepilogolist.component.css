@@ -1,0 +1,26 @@
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+.align-number {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.mat-column-Dipendente {
+  color: #eeeeee;
+  font-weight: bold;
+}
+
+.mat-column-progetti {
+  padding-left: 5px;
+}

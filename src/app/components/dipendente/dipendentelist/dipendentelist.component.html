@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container margin-top">
   <div class="row">
     <div class="col-9">
-      <button class="float-end" (click)="openDialog()" mat-mini-fab matTooltip="Aggiungi dipendente" color="accent" aria-label="dipendente">
+      <button class="float-end primary color-white" (click)="openDialog()" mat-mini-fab matTooltip="Aggiungi dipendente" aria-label="dipendente">
         <mat-icon aria-hidden="false" aria-label="home" fontIcon="add"></mat-icon>
       </button>
       <mat-form-field appearance="standard">
@@ -33,17 +33,17 @@
           <ng-container matColumnDef="azioni">
             <th mat-header-cell *matHeaderCellDef > </th>
             <td mat-cell *matCellDef="let dipendente">
-              <button *ngIf="!dipendente.isEdit" (click)="dipendente.isEdit = true" mat-button color="primary" >
-                <mat-icon aria-hidden="false" aria-label="edit" fontIcon="edit"></mat-icon>
+              <button *ngIf="!dipendente.isEdit" (click)="dipendente.isEdit = true" mat-button >
+                <mat-icon aria-hidden="false" aria-label="edit" fontIcon="edit" class="color-primary"></mat-icon>
               </button>
-              <button *ngIf="!dipendente.isEdit" (click)="openDeleteDialog(dipendente)" mat-button color="warn">
-                <mat-icon aria-hidden="false" aria-label="elimina" fontIcon="delete"></mat-icon>
+              <button *ngIf="!dipendente.isEdit" (click)="openDeleteDialog(dipendente)" mat-button >
+                <mat-icon aria-hidden="false" aria-label="elimina" fontIcon="delete" class="color-purple"></mat-icon>
               </button>
-              <button *ngIf="dipendente.isEdit" (click)="update(dipendente)" mat-button color="primary" >
-                <mat-icon aria-hidden="false" aria-label="save" fontIcon="save"></mat-icon>
+              <button *ngIf="dipendente.isEdit" (click)="update(dipendente)" mat-button>
+                <mat-icon aria-hidden="false" aria-label="save" fontIcon="save" class="color-primary"></mat-icon>
               </button>
-              <button *ngIf="dipendente.isEdit" (click)="dipendente.isEdit = false; retrieveList()" mat-button color="warn">
-                <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
+              <button *ngIf="dipendente.isEdit" (click)="dipendente.isEdit = false; retrieveList()" mat-button >
+                <mat-icon aria-hidden="false" aria-label="close" fontIcon="close" class="color-purple"></mat-icon>
               </button>
             </td>
           </ng-container>
