@@ -1,26 +1,26 @@
-<mat-toolbar color="primary">
-  <button *ngIf="isLoggedIn" (click)="sidebarmenu.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar class="primary">
+  <button *ngIf="isLoggedIn$ | async" (click)="sidebarmenu.toggle()" mat-icon-button class="example-icon color-white" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Gestione Pianificazione</span>
+  <span class="color-white">Gestione Pianificazione</span>
   <span class="example-spacer"></span>
-  <button matTooltip="Logout" matTooltipPosition="below" mat-button *ngIf="isLoggedIn" (click)="onLogout()">
+  <button class="color-white" matTooltip="Logout" matTooltipPosition="below" mat-button *ngIf="isLoggedIn$ | async" (click)="onLogout()">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidebarmenu class="primary">
     <mat-nav-list>
-      <a mat-list-item [routerLink]="'/riepilogo'" matTooltip="Riepilogo" matTooltipPosition="right">
+      <a mat-list-item (click)="sidebarmenu.toggle()" [routerLink]="'/riepilogo'" matTooltip="Riepilogo" matTooltipPosition="right">
         <mat-icon class="color-white">home</mat-icon>
       </a>
-      <a mat-list-item [routerLink]="'/pianificato'" matTooltip="Pianificazione" matTooltipPosition="right">
+      <a mat-list-item (click)="sidebarmenu.toggle()" [routerLink]="'/pianificato'" matTooltip="Pianificazione" matTooltipPosition="right">
         <mat-icon class="color-white">event_note</mat-icon>
       </a>
-      <a mat-list-item [routerLink]="'/dipendenti'" matTooltip="Gestisci dipendenti" matTooltipPosition="right">
+      <a mat-list-item (click)="sidebarmenu.toggle()" [routerLink]="'/dipendenti'" matTooltip="Gestisci dipendenti" matTooltipPosition="right">
         <mat-icon class="color-white">perm_identity</mat-icon>
       </a>
-      <a mat-list-item [routerLink]="'/progetto'" matTooltip="Gestisci progetti" matTooltipPosition="right">
+      <a mat-list-item (click)="sidebarmenu.toggle()" [routerLink]="'/progetto'" matTooltip="Gestisci progetti" matTooltipPosition="right">
         <mat-icon class="color-white">business</mat-icon>
       </a>
     </mat-nav-list>
