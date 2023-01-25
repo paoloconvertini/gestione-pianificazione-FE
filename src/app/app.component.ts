@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "./services/authentication/authentication.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,16 @@ import {AuthenticationService} from "./services/authentication/authentication.se
 export class AppComponent implements OnInit {
   title = 'gestione-pianificazione-fe';
 
-  isLoggedIn: boolean = false;
+  isLoggedIn$: Observable<boolean> | undefined;
 
   constructor(private authService: AuthenticationService) {
   }
 
   onLogout(){
-    this.isLoggedIn = false;
     this.authService.logout();
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn(); // {2}
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 }
